@@ -18,20 +18,20 @@ public:
     virtual void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            cout << "Deposit successful!" << endl;
+            cout << "\nDeposit successful!" << endl;
         } else {
-            cout << "Invalid amount. Deposit must be greater than 0." << endl;
+            cout << "\nInvalid amount. Deposit must be greater than 0." << endl;
         }
     }
 
     virtual void withdraw(double amount) {
         if (amount <= balance && amount > 0) {
             balance -= amount;
-            cout << "Withdrawal successful!" << endl;
+            cout << "\nWithdrawal successful!" << endl;
         } else if (amount <= 0) {
-            cout << "Invalid amount. Withdrawal must be greater than 0." << endl;
+            cout << "\nInvalid amount. Withdrawal must be greater than 0." << endl;
         } else {
-            cout << "Insufficient funds!" << endl;
+            cout << "\nInsufficient funds!" << endl;
         }
     }
 
@@ -49,7 +49,7 @@ public:
                 if (c == '.' && !decimalPoint) {
                     decimalPoint = true;  // Allow one decimal point
                 } else {
-                    cout << "Invalid input. Please enter a valid number." << endl;
+                    cout << "\nInvalid input. Please enter a valid number." << endl;
                     return false;
                 }
             }
@@ -59,7 +59,7 @@ public:
             amount = stod(input);  // Convert the valid numeric string to a double
             return true;
         } catch (...) {
-            cout << "Invalid input. Please enter a valid number." << endl;
+            cout << "\nInvalid input. Please enter a valid number." << endl;
             return false;
         }
     }
@@ -70,7 +70,9 @@ public:
             choice = input[0];
             return true;
         }
-        cout << "Invalid input. Please enter a valid menu option." << endl;
+        cout << "\nInvalid input. Please enter a valid menu option." << endl;
+        system("pause");
+        system("cls");
         return false;
     }
 };
@@ -87,9 +89,9 @@ public:
         if (balance - amount >= min_balance && amount > 0) {
             BankAccount::withdraw(amount);
         } else if (amount <= 0) {
-            cout << "Invalid amount. Withdrawal must be greater than 0." << endl;
+            cout << "\nInvalid amount. Withdrawal must be greater than 0." << endl;
         } else {
-            cout << "Withdrawal denied! Minimum balance of 1000 required." << endl;
+            cout << "\nWithdrawal denied! Minimum balance of 1000 required." << endl;
         }
     }
 
@@ -103,27 +105,27 @@ public:
             cout << "2 - Withdraw" << endl;
             cout << "3 - Check Balance" << endl;
             cout << "4 - Back to Main Menu" << endl;
-            cout << "Enter your choice: ";
+            cout << "\nEnter your choice: ";
             cin >> input;
 
             if (validMenuInput(input, choice)) {
                 switch (choice) {
                     case '1':
-                        cout << "Enter amount to deposit: ";
+                        cout << "\nEnter amount to deposit: ";
                         cin >> input;
                         if (validInput(input, amount)) deposit(amount);
                         system("pause");
                         system("cls");
                         break;
                     case '2':
-                        cout << "Enter amount to withdraw: ";
+                        cout << "\nEnter amount to withdraw: ";
                         cin >> input;
                         if (validInput(input, amount)) withdraw(amount);
                         system("pause");
                         system("cls");
                         break;
                     case '3':
-                        cout << "Current Balance: " << fixed << setprecision(2) << getBalance() << endl;
+                        cout << "\nCurrent Balance: " << fixed << setprecision(2) << getBalance() << endl;
                         system("pause");
                         system("cls");
                         break;
@@ -131,7 +133,7 @@ public:
                         system("cls");
                         break;
                     default:
-                        cout << "Invalid choice! Please try again." << endl;
+                        cout << "\nInvalid choice! Please try again." << endl;
                         system("pause");
                         system("cls");
                 }
@@ -155,27 +157,27 @@ public:
             cout << "2 - Withdraw" << endl;
             cout << "3 - Check Balance" << endl;
             cout << "4 - Back to Main Menu" << endl;
-            cout << "Enter your choice: ";
+            cout << "\nEnter your choice: ";
             cin >> input;
 
             if (validMenuInput(input, choice)) {
                 switch (choice) {
                     case '1':
-                        cout << "Enter amount to deposit: ";
+                        cout << "\nEnter amount to deposit: ";
                         cin >> input;
                         if (validInput(input, amount)) deposit(amount);
                         system("pause");
                         system("cls");
                         break;
                     case '2':
-                        cout << "Enter amount to withdraw: ";
+                        cout << "\nEnter amount to withdraw: ";
                         cin >> input;
                         if (validInput(input, amount)) withdraw(amount);
                         system("pause");
                         system("cls");
                         break;
                     case '3':
-                        cout << "Current Balance: " << fixed << setprecision(2) << getBalance() << endl;
+                        cout << "\nCurrent Balance: " << fixed << setprecision(2) << getBalance() << endl;
                         system("pause");
                         system("cls");
                         break;
@@ -183,7 +185,7 @@ public:
                         system("cls");
                         break;
                     default:
-                        cout << "Invalid choice! Please try again." << endl;
+                        cout << "\nInvalid choice! Please try again." << endl;
                         system("pause");
                         system("cls");
                 }
@@ -203,7 +205,7 @@ void MainMenu() {
         cout << "1 - Savings Account" << endl;
         cout << "2 - Current Account" << endl;
         cout << "3 - Exit" << endl;
-        cout << "Enter your choice: ";
+        cout << "\nEnter your choice: ";
         cin >> input;
 
         if (savings.validMenuInput(input, choice)) {
@@ -217,11 +219,11 @@ void MainMenu() {
                     current.displayMenu();
                     break;
                 case '3':
-                    cout << "Exiting the system. Goodbye!" << endl;
+                    cout << "\nExiting the system. Goodbye!" << endl;
                     system("pause");
                     break;
                 default:
-                    cout << "Invalid choice! Please try again." << endl;
+                    cout << "\nInvalid choice! Please try again." << endl;
                     system("pause");
                     system("cls");
             }
